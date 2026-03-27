@@ -67,11 +67,6 @@ proyecto-big-data/
 │   ├── EA2_etl_batch/              # Experiencia de Aprendizaje 2
 │   ├── EA3_tiempo_real/            # Experiencia de Aprendizaje 3
 │   └── extras/                     # Actividades complementarias
-├── notebooks_resueltos/            # Notebooks con soluciones (solo lectura)
-│   ├── EA1_fundamentos/
-│   ├── EA2_etl_batch/
-│   ├── EA3_tiempo_real/
-│   └── extras/
 ├── datos/                          # Datasets de ejemplo
 │   ├── flights.csv
 │   ├── sales.csv
@@ -299,6 +294,21 @@ Este script verifica:
 - Conexion a Hive Metastore (perfil completo)
 
 Las verificaciones de Kafka y Hive solo pasaran si estas usando el perfil **completo**.
+
+---
+
+## Soluciones (para docentes)
+
+Las versiones resueltas de todos los notebooks estan en el branch **`soluciones`**:
+
+```bash
+# Ver las soluciones (no necesario para alumnos)
+git checkout soluciones
+# Volver a main
+git checkout main
+```
+
+> **Nota para alumnos:** Intenta resolver los ejercicios por tu cuenta antes de consultar las soluciones.
 
 ---
 

@@ -23,7 +23,6 @@ services:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
       - ./notebooks:/home/jovyan/notebooks
-      - ./notebooks_resueltos:/home/jovyan/notebooks_resueltos:ro
       - ./datos:/home/jovyan/datos
       - ./scripts:/home/jovyan/scripts
       - jupyter-work:/home/jovyan/work
