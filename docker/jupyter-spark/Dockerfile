@@ -1,8 +1,12 @@
-FROM jupyter/pyspark-notebook:spark-3.5.3
+FROM jupyter/pyspark-notebook:latest
 
 USER root
 
-# Instalar dependencias del sistema
+# 🔥 Cambiar a HTTPS (esto arregla el 403)
+RUN sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' /etc/apt/sources.list && \
+    sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' /etc/apt/sources.list
+
+# Instalar paquetes
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     netcat-openbsd \
@@ -10,14 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 USER ${NB_UID}
 
-# Copiar e instalar dependencias Python
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-# Configurar Spark para conectar a cluster externo y Hive
-ENV SPARK_MASTER_URL=spark://spark-master:7077
-ENV PYSPARK_PYTHON=python3
-ENV PYSPARK_DRIVER_PYTHON=python3
-
-# Directorio de trabajo
 WORKDIR /home/jovyan
